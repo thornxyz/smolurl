@@ -13,7 +13,7 @@ import (
 
 func setupRoutes(app *fiber.App) {
 	app.Get("/:url", routes.ResolveURL)
-	app.Post("/api/v1", routes.ShortenURL)
+	app.Post("/shorten", routes.ShortenURL)
 }
 
 func main() {
@@ -23,7 +23,9 @@ func main() {
 		fmt.Println(err)
 	}
 
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		ReadBufferSize: 8192,
+	})
 
 	app.Use(logger.New())
 
