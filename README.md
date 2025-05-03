@@ -2,7 +2,6 @@ URL shortening service built with Go, Redis, and Fiber.
 
 ## Features
 
-- Shorten long URLs into compact, shareable links.
 - Custom short URLs.
 - Rate limiting to prevent abuse.
 - Expiry for shortened URLs.
@@ -10,7 +9,6 @@ URL shortening service built with Go, Redis, and Fiber.
 ## Prerequisites
 
 - Docker and Docker Compose installed.
-- Golang installed.
 
 ## Set Up Environment Variables
 
