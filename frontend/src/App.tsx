@@ -15,13 +15,19 @@ function App() {
 
   const handleShorten = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/shorten", {
-        url,
-        short: customShort,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/shorten`,
+        {
+          url,
+          short: customShort,
+        }
+      );
       setShortenedData(response.data);
     } catch (error: any) {
-      alert(error?.response?.data?.message || "Failed to shorten URL");
+      const errorMessage =
+        error?.response?.data?.error ||
+        "Something went wrong. Please try again.";
+      alert(errorMessage);
     }
   };
 

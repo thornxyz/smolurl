@@ -30,7 +30,7 @@ func main() {
 	app.Use(logger.New())
 
 	app.Use(func(c *fiber.Ctx) error {
-		c.Set("Access-Control-Allow-Origin", "http://localhost:5173")
+		c.Set("Access-Control-Allow-Origin", os.Getenv("FRONTEND_URL"))
 		c.Set("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
 		c.Set("Access-Control-Allow-Headers", "Content-Type")
 		if c.Method() == "OPTIONS" {
