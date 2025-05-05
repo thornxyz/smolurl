@@ -24,7 +24,7 @@ API_QUOTA=10
 
 Create a `.env` file in the `frontend/` directory with the following variables:
 
-```
+```env
 VITE_API_URL="http://localhost:3000"
 ```
 
@@ -38,13 +38,9 @@ docker-compose up --build
 
 This will start:
 
+- The Frontend service on `http://localhost:8080`
 - The API service on `http://localhost:3000`
 - The Redis database
-- The Frontend service on `http://localhost:8080`
-
-## Frontend Service
-
-The frontend is built with React and Vite. It is containerized and runs on port `8080`.
 
 ### Access the Frontend
 
@@ -54,13 +50,9 @@ Once the application is running, you can access the frontend at:
 http://localhost:8080
 ```
 
-The frontend communicates with the API service to provide a user-friendly interface for shortening and managing URLs.
+### API Endpoints
 
-### 4. API Endpoints
-
-#### Shorten a URL
-
-**POST** `/shorten`
+Shorten a URL -  **POST** `/shorten`
 
 Request Body:
 
@@ -84,9 +76,7 @@ Response:
 }
 ```
 
-#### Resolve a Short URL
-
-**GET** `/:url`
+Resolve a Short URL -  **GET** `/:url`
 
 Redirects to the original URL or returns a 404 if not found.
 
